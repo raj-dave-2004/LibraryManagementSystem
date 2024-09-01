@@ -28,7 +28,7 @@ public class Library {
                 return book;
             }
         }
-        return null; // Return null if no book is found
+        return null;
     }
 
     public void borrowBook(String isbn) throws Exception {
@@ -37,6 +37,17 @@ public class Library {
             book.setAvailable(false);
         } else {
             throw new Exception("Book is not available or not exist.");
+        }
+    }
+
+    //Implementation of returning books feauture
+
+    public void returnBook(String isbn) throws Exception {
+        Book book = getBookByISBN(isbn);
+        if (book != null && !book.isAvailable()) {
+            book.setAvailable(true);
+        } else {
+            throw new Exception("Book is not borrowed or not exist.");
         }
     }
 }
