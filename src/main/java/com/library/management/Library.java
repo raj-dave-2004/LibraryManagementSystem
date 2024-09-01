@@ -50,4 +50,16 @@ public class Library {
             throw new Exception("Book is not borrowed or not exist.");
         }
     }
+
+    //Implementation of view available books feature
+
+    public List<Book> viewAvailableBooks() {
+        List<Book> availableBooks = new ArrayList<>();
+        for (Book book : books) {
+            if (book.isAvailable()) {
+                availableBooks.add(book);
+            }
+        }
+        return availableBooks;
+    }
 }

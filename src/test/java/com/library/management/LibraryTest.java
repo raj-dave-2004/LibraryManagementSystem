@@ -71,7 +71,7 @@ class LibraryTest {
         library.addBook(book2);
         library.addBook(book3);
         library.borrowBook("1112223334");
-        assertEquals(1, library.viewAvailableBooks().size());
+        assertEquals(2, library.viewAvailableBooks().size());
         assertEquals("2223334445", library.viewAvailableBooks().get(0).getIsbn());
     }
 }
