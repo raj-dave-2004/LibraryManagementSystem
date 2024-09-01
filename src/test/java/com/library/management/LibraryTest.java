@@ -59,5 +59,20 @@ class LibraryTest {
         });
         assertEquals("Book is not borrowed or not exist.", exception.getMessage());
     }
+
+        //Test for view available books
+
+        @Test
+    void testViewAvailableBooks() throws Exception {
+        Book book1 = new Book("1112223334", "Harry Potter 1", "J K Rowling", 1997);
+        Book book2 = new Book("2223334445", "The Alchemist", "Paulo Coelho", 1988);
+        Book book3 = new Book("3334445556", "Harry Potter 1", "J K Rowling", 2002);
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+        library.borrowBook("1112223334");
+        assertEquals(1, library.viewAvailableBooks().size());
+        assertEquals("2223334445", library.viewAvailableBooks().get(0).getIsbn());
+    }
 }
 
