@@ -40,5 +40,24 @@ class LibraryTest {
         });
         assertEquals("Book is not available or not exist.", exception.getMessage());
     }
+
+    //Test for Returning Book Feature
+
+    @Test
+    void testReturnBookSuccess() throws Exception {
+        Book book = new Book("1112223334", "Harry Potter 1", "J K Rowling", 1997);
+        library.addBook(book);
+        library.borrowBook("1112223334");
+        library.returnBook("1112223334");
+        assertTrue(library.getBookByISBN("1112223334").isAvailable());
+    }
+
+    @Test
+    void testReturnBookFailure() {
+        Exception exception = assertThrows(Exception.class, () -> {
+            library.returnBook("0000000000");
+        });
+        assertEquals("Book is not borrowed or not exist.", exception.getMessage());
+    }
 }
 
