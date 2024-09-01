@@ -16,8 +16,8 @@ This is a simple Library Management System built in Java, following Test-Driven 
 - Git
 - JUnit 5 for testing
 - Extension packs
-
-  1. Initialize Git Repository
+  
+1. Initialize Git Repository
      First, create a new directory for your project and initialize a Git repository:
 
 mkdir LibraryManagementSystem
